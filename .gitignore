@@ -1,0 +1,36 @@
+# Environnement virtuel (Le plus important)
+.venv/
+venv/
+env/
+bin/
+lib/
+include/
+
+# Cache Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Données et archives (Ne jamais pousser les datasets Kaggle sur GitHub)
+dataset/
+*.csv
+*.zip
+*.rar
+
+# Modèles et fichiers lourds (Optionnel : si vous gérez les versions ailleurs)
+# Si votre .pkl est petit (<50MB), vous pouvez le laisser, sinon utilisez LFS
+# *.pkl
+
+# Configuration VS Code
+.vscode/
+.history/
+
+# Docker
+.dockerignore
+
+# Dossiers de checkpoints (Jupyter)
+.ipynb_checkpoints/
+
+# Fichiers système
+Thumbs.db
+.DS_Store
