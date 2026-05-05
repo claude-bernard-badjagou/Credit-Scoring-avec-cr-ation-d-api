@@ -2,9 +2,9 @@ import streamlit as st
 import requests
 
 # Configuration de la page
-st.set_page_config(page_title="Djamo Credit Scoring", page_icon="💳")
+st.set_page_config(page_title="Credit Scoring", page_icon="💳")
 
-st.title("💳 Simulateur de Crédit Djamo")
+st.title("💳 Simulateur de Crédit")
 st.write("Entrez les informations du client pour obtenir une décision instantanée.")
 
 # Formulaire de saisie
