@@ -22,7 +22,7 @@ class CreditRequest(BaseModel):
     # Note : Ajoutez ici les autres colonnes nécessaires si votre modèle en utilise plus
 
 app = FastAPI(
-    title="Djamo Credit Scoring Service",
+    title="Credit Scoring Service",
     description="API de prédiction du risque de crédit pour l'inclusion financière.",
     version="1.0.0"
 )
@@ -43,7 +43,7 @@ def read_root():
     """Corrige l'erreur 404 sur '/' en redirigeant vers la doc ou un statut."""
     return {
         "status": "Online",
-        "message": "Bienvenue sur l'API de Scoring Djamo",
+        "message": "Bienvenue sur l'API de Scoring",
         "documentation": "/docs"
     }
 
@@ -67,15 +67,15 @@ async def get_score(data: CreditRequest):
         # Assurez-vous que les colonnes dans input_df correspondent exactement à l'entraînement
         probability = model.predict_proba(input_df)[0][1]
         
-        # Transformation en Score Djamo (Échelle de 300 à 850)
+        # Transformation en Score  (Échelle de 300 à 850)
         # Formule : Score haut = Risque bas
-        djamo_score = int(850 - (probability * 550))
+        score = int(850 - (probability * 550))
         
         return {
             "client_id": data.SK_ID_CURR,
-            "score": djamo_score,
-            "decision": "APPROUVÉ" if djamo_score > 600 else "REFUSÉ",
-            "risk_level": "FAIBLE" if djamo_score > 750 else "ÉLEVÉ",
+            "score": score,
+            "decision": "APPROUVÉ" if score > 600 else "REFUSÉ",
+            "risk_level": "FAIBLE" if score > 750 else "ÉLEVÉ",
             "probability_of_default": round(float(probability), 4)
         }
     

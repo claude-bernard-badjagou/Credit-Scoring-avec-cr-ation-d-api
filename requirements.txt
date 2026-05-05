@@ -3,3 +3,6 @@ uvicorn
 pandas
 lightgbm
 scikit-learn
+pydantic
+requests
+streamlit
